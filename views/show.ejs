@@ -5,10 +5,18 @@
         <title>Hot Girl</title>
         <script src="jquery.js"></script>
         <script>
-            let i = 0;
+            const id = "<%= id %>";
+            let like = "<%= likes %>";
+
             $(document).ready(() => {
-                console.log('HTML DOC loaded!');
-                $('#btnGetData').click(() => console.log(++i));
+                $('#a-like').click((e) => {
+                    e.preventDefault();
+                    $.get(`/like/${id}`, data => {
+                        if (data === 'THANH_CONG') {
+                            $('#a-like').html(`Like ${++like}`);
+                        }
+                    });
+                });
             });
         </script>
         <style>
@@ -40,10 +48,9 @@
             <img src="images/<%= image %>">
             <hr />
             <div class="div-nav">
-                <a href="/like/<%= id %>">Like <%= likes %></a>
-                <a href="/dislike/<%= id %>">Dislike <%= dislikes %></a>
+                <a href="#" id="a-like">Like <%= likes %></a>
+                <a href="#" id="a-dislike">Dislike <%= dislikes %></a>
             </div>
-            <button id="btnGetData">GET DATA</button>
         </div>
     </body>
 </html>

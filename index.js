@@ -20,7 +20,7 @@ app.get('/show/:id', (req, res) => {
 app.get('/like/:id', (req, res) => {
     const { id } = req.params;
     hitLike(id)
-    .then(() => res.redirect(`/show/${id}`));
+    .then(() => res.send('THANH_CONG'));
 });
 
 app.get('/dislike/:id', (req, res) => {
@@ -28,3 +28,5 @@ app.get('/dislike/:id', (req, res) => {
     hitDislike(id)
     .then(() => res.redirect(`/show/${id}`));
 });
+
+app.get('/like', (req, res) => res.send('LIKESSSSS'));
