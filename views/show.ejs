@@ -3,6 +3,14 @@
     <head>
         <base href="../">
         <title>Hot Girl</title>
+        <script src="jquery.js"></script>
+        <script>
+            let i = 0;
+            $(document).ready(() => {
+                console.log('HTML DOC loaded!');
+                $('#btnGetData').click(() => console.log(++i));
+            });
+        </script>
         <style>
             a:visited {
                 color: #0000E9;
@@ -35,6 +43,7 @@
                 <a href="/like/<%= id %>">Like <%= likes %></a>
                 <a href="/dislike/<%= id %>">Dislike <%= dislikes %></a>
             </div>
+            <button id="btnGetData">GET DATA</button>
         </div>
     </body>
 </html>
