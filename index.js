@@ -23,4 +23,8 @@ app.get('/like/:id', (req, res) => {
     .then(() => res.redirect(`/show/${id}`));
 });
 
-
+app.get('/dislike/:id', (req, res) => {
+    const { id } = req.params;
+    hitDislike(id)
+    .then(() => res.redirect(`/show/${id}`));
+});
