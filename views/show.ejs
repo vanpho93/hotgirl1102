@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <base href="../">
         <title>Hot Girl</title>
         <style>
             hr {
@@ -20,11 +21,11 @@
                 <a href="#">Previous</a>
             </div>
             <hr />
-            <img src="images/1.jpg">
+            <img src="images/<%= image %>">
             <hr />
             <div class="div-nav">
-                <a href="#">Like 10</a>
-                <a href="#">Dislike 10</a>
+                <a href="#">Like <%= likes %></a>
+                <a href="#">Dislike <%= dislikes %></a>
             </div>
         </div>
     </body>
