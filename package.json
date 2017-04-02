@@ -1,0 +1,13 @@
+{
+  "name": "hotgirl1102",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vanpho93/hotgirl1102.git",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^6.1.5"
+  },
+  "devDependencies": {
+    "eslint-config-rallycoding": "^3.2.0"
+  }
+}
