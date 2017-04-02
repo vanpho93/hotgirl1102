@@ -13,15 +13,22 @@ const config = {
 
 const pool = new pg.Pool(config);
 
-function queryDB(sql, arrayData, cb) {
-    pool.connect((err, client, done) => {
-        if (err) return cb(`${err} `);
-        client.query(sql, arrayData, (queryErr, result) => {
-            done(queryErr);
-            if (queryErr) return cb(`${queryErr} `);
-            cb(undefined, result);
+function queryDB(sql, arrayData) {
+    return new Promise((resolve, reject) => {
+        pool.connect((err, client, done) => {
+            if (err) return reject(err);
+            client.query(sql, arrayData, (queryErr, result) => {
+                done(queryErr);
+                if (queryErr) return reject(queryErr);
+                resolve(result);
+            });
         });
     });
 }
 
-module.exports = queryDB;
+const getHotGirlById = id => (
+    queryDB('SELECT * FROM "HotGirl" WHERE id = $1', [id])
+    .then(result => result.rows[0])
+);
+
+module.exports = { getHotGirlById };
