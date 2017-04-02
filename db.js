@@ -31,4 +31,12 @@ const getHotGirlById = id => (
     .then(result => result.rows[0])
 );
 
-module.exports = { getHotGirlById };
+const hitLike = id => (
+    queryDB('UPDATE public."HotGirl" SET likes = likes + 1 WHERE id = $1', [id])
+);
+
+const hitDislike = id => (
+    queryDB('UPDATE public."HotGirl" SET dislikes = dislikes + 1 WHERE id = $1', [id])
+);
+
+module.exports = { getHotGirlById, hitDislike, hitLike };
