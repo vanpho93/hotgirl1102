@@ -11,6 +11,10 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
+app.get('/show', (req, res) => {
+    res.render('show');
+});
+
 app.get('/getData', (req, res) => {
     queryDB('SELECT * FROM "HotGirl"', [], (err, result) => {
         res.send(result.rows);
