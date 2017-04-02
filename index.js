@@ -1,4 +1,5 @@
 const express = require('express');
+const queryDB = require('./db');
 
 const app = express();
 app.listen(process.env.PORT || 3000);
@@ -8,4 +9,10 @@ app.set('views', './views');
 
 app.get('/', (req, res) => {
     res.render('home');
+});
+
+app.get('/getData', (req, res) => {
+    queryDB('SELECT * FROM "HotGirl"', [], (err, result) => {
+        res.send(result.rows);
+    });
 });

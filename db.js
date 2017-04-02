@@ -24,8 +24,4 @@ function queryDB(sql, arrayData, cb) {
     });
 }
 
-queryDB('SELECT * FROM "HotGirl"', [], (err, result) => {
-    console.log(result);
-});
-
 module.exports = queryDB;
