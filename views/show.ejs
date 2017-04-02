@@ -4,6 +4,9 @@
         <base href="../">
         <title>Hot Girl</title>
         <style>
+            a:visited {
+                color: #0000E9;
+            }
             hr {
                 visibility: hidden
             }
@@ -11,14 +14,19 @@
                 display: flex;
                 width: 300px;
                 justify-content: space-between;
+                align-items: center;
+            }
+            #wrapper {
+                margin: 20px;
             }
         </style>
     </head>
     <body>
-        <div>
+        <div id="wrapper">
             <div class="div-nav">
-                <a href="#">Next</a>
-                <a href="#">Previous</a>
+                <a href="/show/<%= id - 1 %>">Previous</a>
+                <h3><%= name %></h3>
+                <a href="/show/<%= id + 1 %>">Next</a>
             </div>
             <hr />
             <img src="images/<%= image %>">
